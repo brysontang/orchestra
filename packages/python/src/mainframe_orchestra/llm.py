@@ -840,7 +840,7 @@ class OllamaModels:
             for attempt in range(MAX_RETRIES):
                 print_debug(f"Attempt {attempt + 1}/{MAX_RETRIES}")
                 try:
-                    client = ollama.Client()
+                    client = ollama.Client(host="http://localhost:11434")
                     print_conditional_color(f"\n[LLM] Ollama ({model}) Request Messages:", "cyan")
                     for msg in messages:
                         print_api_request(json.dumps(msg, indent=2))
